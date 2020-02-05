@@ -1125,7 +1125,33 @@
         web3.eth.defaultAccount = web3.eth.accounts[0];
        
         // Setup Contract's Properties //
-        var contractABI = [
+        var contractABI =[
+	{
+		"inputs": [],
+		"name": "airportName",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "documentAddress",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
 	{
 		"inputs": [],
 		"name": "getAirportName",
@@ -1155,6 +1181,19 @@
 	{
 		"inputs": [],
 		"name": "getProjectName",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "projectName",
 		"outputs": [
 			{
 				"internalType": "string",
@@ -1204,30 +1243,32 @@
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
-]; 
-        var contractAddress = "0x0073849561c3462904cA2932E0AE5d4981ef8118";
+];
+        var contractAddress = "0xA998D6Fad25CfbA40eA221C4dafAc4F07c4f4A04";
         var contract = new web3.eth.Contract(contractABI, contractAddress);
 
-         // Take data from input fields //
-         var projectName = document.getElementById('project-name').value;
-         var airportName = document.getElementById('airport-name').value;
-
+         
         function addProject() {
+            // Take data from input fields //
+            var projectName = document.getElementById('project-name').value;
+            var airportName = document.getElementById('airport-name').value;
+                
             // Add the project's name //
             contract.methods.setProjectName(projectName).send({ from: sender })
             .then(function (res) {
-                console.log("Project's Name",res);
+                console.log("Project's Name Result :",res);
             }).catch(function (err) {
-            console.log("Project's Name",err);
+            console.log("Project's Name Error :",err);
             });
+            
             // Add the project's airport //
             contract.methods.setAirportName(airportName).send({from: sender})
             .then(function(res){
-                console.log("Project's Airport :",res);
+                console.log("Project's Airport Result :",res);
             }).catch(function(err){
-                console.log("Project's Airport",err);
+                console.log("Project's Airport Error :",err);
             });
-
+            
 
         }
       
