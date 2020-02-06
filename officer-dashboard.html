@@ -54,7 +54,7 @@
                     <li class="active">
                         <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Officer Dashboard </a>
                     </li>
-                    <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
+                    <!-- <h3 class="menu-title">UI elements</h3>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Components</a>
@@ -90,7 +90,7 @@
                         </ul>
                     </li>
 
-                    <h3 class="menu-title">Icons</h3><!-- /.menu-title -->
+                    <h3 class="menu-title">Icons</h3>
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
@@ -126,7 +126,7 @@
                             </li>
                         </ul>
                     </li>
-                    <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
+                    <h3 class="menu-title">Extras</h3>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
@@ -136,7 +136,7 @@
                             <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -406,7 +406,7 @@
                 </div>
             </div>
             <div class="col-sm-2 float-right">
-                <button type="button" class="btn btn-success ">Add Project</button>
+                <button type="button" onclick="window.location.href='/add-project.html'" class="btn btn-success ">Add Project</button>
 
             </div>
 
@@ -432,14 +432,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <!-- <tr>
                                                 <td>Tiger Nixon</td>
                                                 <td>System Architect</td>
                                                 <td>Edinburgh</td>
                                                 <td>$320,800</td>
                                                 <td>Document</td>
                                                 <td><i class="fa fa-edit"></i></td>
-                                            </tr>
+                                            </tr> -->
                                             <!--
                                             <tr>
                                                 <td>Garrett Winters</td>
@@ -1115,280 +1115,280 @@
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
     <script>
         // Setup Web3 object //
-        var sender = '0x40c879e9d87B81F6634433986b49320E587838D5';
+        var sender = '0x63FA81F8e2d7dABc57897Ed9f4eccC8D45291B16';
         var web3 = new Web3();
         web3.setProvider(new Web3.providers.HttpProvider('http://localhost:7545'));
         web3.eth.defaultAccount = web3.eth.accounts[0];
 
         // Setup Contract's Properties //
         var contractABI = [
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_projectId",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "getAirportName",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_projectId",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "getDocumentAddress",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_projectId",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "getProject",
-                "outputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_projectId",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "getProjectName",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "getProjectsId",
-                "outputs": [
-                    {
-                        "internalType": "uint256[]",
-                        "name": "",
-                        "type": "uint256[]"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_projectId",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "getStatus",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "getTotalProjectsCount",
-                "outputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "mProjectsCollection",
-                "outputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_projectId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "_airportName",
-                        "type": "string"
-                    }
-                ],
-                "name": "setAirportName",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_projectId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "_documentAddress",
-                        "type": "string"
-                    }
-                ],
-                "name": "setDocumentAddress",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_projectId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "_projectName",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "_airportName",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "_status",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "_documentAddress",
-                        "type": "string"
-                    }
-                ],
-                "name": "setProject",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_projectId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "_projectName",
-                        "type": "string"
-                    }
-                ],
-                "name": "setProjectName",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_projectId",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "_status",
-                        "type": "string"
-                    }
-                ],
-                "name": "setStatus",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            }
-        ];
-        var contractAddress = "0x6E416671Dc369935482A13755C54549475D79Ff5";
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			}
+		],
+		"name": "getAirportName",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			}
+		],
+		"name": "getDocumentAddress",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			}
+		],
+		"name": "getProject",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			}
+		],
+		"name": "getProjectName",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getProjectsId",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			}
+		],
+		"name": "getStatus",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getTotalProjectsCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "mProjectsCollection",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_airportName",
+				"type": "string"
+			}
+		],
+		"name": "setAirportName",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_documentAddress",
+				"type": "string"
+			}
+		],
+		"name": "setDocumentAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_projectName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_airportName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_status",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_documentAddress",
+				"type": "string"
+			}
+		],
+		"name": "setProject",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_projectName",
+				"type": "string"
+			}
+		],
+		"name": "setProjectName",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_status",
+				"type": "string"
+			}
+		],
+		"name": "setStatus",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+];
+        var contractAddress = "0x36b7A82def7C7BE0cc838908c47d6dAf64dc4AF3";
         var contract = new web3.eth.Contract(contractABI, contractAddress);
 
         // get the all project ids//
