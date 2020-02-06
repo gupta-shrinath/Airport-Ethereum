@@ -358,6 +358,15 @@
                                     <span class="help-block field-validation-valid" data-valmsg-for="airport-name"
                                         data-valmsg-replace="true"></span>
                                 </div>
+                                <div class="form-group has-success">
+                                    <label for="document-addr" class="control-label mb-1">Document Link</label>
+                                    <input id="document-addr" name="document-addr" type="text"
+                                        class="form-control document-addr valid" data-val="true"
+                                        data-val-required="Please enter the name on card" autocomplete="document-addr"
+                                        aria-required="true" aria-invalid="false" aria-describedby="document-addr-error">
+                                    <span class="help-block field-validation-valid" data-valmsg-for="document-addr"
+                                        data-valmsg-replace="true"></span>
+                                </div>
                                 <!--
                                                 <div class="row">
                                                     <div class="col-6">
@@ -1124,160 +1133,315 @@
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
     <!-- ADD PROJECT TO ETHERUM NETWORK -->
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script> -->
+    <script src="assets/js/web3.min.js"></script>
     <script>
+    
         // Generate Project ID //
        document.getElementById('project-id').value = ("" + Math.random()).substring(2, 8);
         // Setup Web3 object //
-        var sender = '0x40c879e9d87B81F6634433986b49320E587838D5';
+        var sender = '0x63FA81F8e2d7dABc57897Ed9f4eccC8D45291B16';
         var web3 = new Web3();
         web3.setProvider(new Web3.providers.HttpProvider('http://localhost:7545'));
         web3.eth.defaultAccount = web3.eth.accounts[0];
 
         // Setup Contract's Properties //
         var contractABI = [
-            {
-                "inputs": [],
-                "name": "airportName",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "documentAddress",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "getAirportName",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "getDocumentAddress",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "getProjectName",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "projectName",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "string",
-                        "name": "_airportName",
-                        "type": "string"
-                    }
-                ],
-                "name": "setAirportName",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "string",
-                        "name": "_documentAddress",
-                        "type": "string"
-                    }
-                ],
-                "name": "setDocumentAddress",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "string",
-                        "name": "_projectName",
-                        "type": "string"
-                    }
-                ],
-                "name": "setProjectName",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            }
-        ];
-        var contractAddress = "0xA998D6Fad25CfbA40eA221C4dafAc4F07c4f4A04";
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			}
+		],
+		"name": "getAirportName",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			}
+		],
+		"name": "getDocumentAddress",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			}
+		],
+		"name": "getProject",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			}
+		],
+		"name": "getProjectName",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getProjectsId",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			}
+		],
+		"name": "getStatus",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getTotalProjectsCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "mProjectsCollection",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_airportName",
+				"type": "string"
+			}
+		],
+		"name": "setAirportName",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_documentAddress",
+				"type": "string"
+			}
+		],
+		"name": "setDocumentAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_projectName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_airportName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_status",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_documentAddress",
+				"type": "string"
+			}
+		],
+		"name": "setProject",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_projectName",
+				"type": "string"
+			}
+		],
+		"name": "setProjectName",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_status",
+				"type": "string"
+			}
+		],
+		"name": "setStatus",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+];
+        var contractAddress = "0x36b7A82def7C7BE0cc838908c47d6dAf64dc4AF3";
         var contract = new web3.eth.Contract(contractABI, contractAddress);
+        contract.options.gasPrice = '20'; // default gas price in wei
+        contract.options.gas = 5000000; // provide as fallback always 5M gas
 
 
         function addProject() {
             // Take data from input fields //
+            var projectId = document.getElementById('project-id').value;
             var projectName = document.getElementById('project-name').value;
             var airportName = document.getElementById('airport-name').value;
+            var projectStatus = '0';
+            var documentAddr = document.getElementById('document-addr').value;
 
-            // Add the project's name //
-            contract.methods.setProjectName(projectName).send({ from: sender })
+            // Add project
+            contract.methods.setProject(projectId,projectName,airportName,projectStatus,documentAddr).send({ from: sender })
                 .then(function (res) {
-                    console.log("Project's Name Result :", res);
+                    console.log("Project Add Result :", res);
                 }).catch(function (err) {
-                    console.log("Project's Name Error :", err);
+                    console.log("Project Add Error :", err);
                 });
 
-            // Add the project's airport //
-            contract.methods.setAirportName(airportName).send({ from: sender })
-                .then(function (res) {
-                    console.log("Project's Airport Result :", res);
-                }).catch(function (err) {
-                    console.log("Project's Airport Error :", err);
-                });
+            // // Add the project's airport //
+            // contract.methods.setAirportName(projectId,airportName).send({ from: sender })
+            //     .then(function (res) {
+            //         console.log("Project's Airport Result :", res);
+            //     }).catch(function (err) {
+            //         console.log("Project's Airport Error :", err);
+            //     });
 
 
         }

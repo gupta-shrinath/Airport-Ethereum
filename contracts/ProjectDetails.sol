@@ -52,7 +52,7 @@ contract ProjectDetails {
         return mProjects[_projectId].documentAddress;
     }
     // Set the status of project by it's id //
-    function setStatus(uint _projectId,string memory _status) public{
+    function setStatus(uint _projectId,string memory _status) public {
         mProjects[_projectId].status = _status;
     }
     // Get the status of project by it's id //
