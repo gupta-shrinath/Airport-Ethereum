@@ -45,8 +45,8 @@
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                <!-- <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a> -->
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -153,7 +153,8 @@
 
             <div class="header-menu">
 
-                <div class="col-sm-7">
+                 <div class="col-sm-7">
+                     <!--
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
@@ -231,9 +232,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-sm-5">
+                <!-- <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
@@ -250,8 +251,8 @@
 
                             <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
-                    </div>
-
+                    </div> -->
+<!-- 
                     <div class="language-select dropdown" id="language-select">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true"
                             aria-expanded="true">
@@ -271,7 +272,7 @@
                                 <i class="flag-icon flag-icon-it"></i>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
@@ -1388,7 +1389,7 @@
 		"type": "function"
 	}
 ];
-        var contractAddress = "0x36b7A82def7C7BE0cc838908c47d6dAf64dc4AF3";
+        var contractAddress = "0x76dcfC8dee12C6669C16652dF37F31A12fc61656";
         var contract = new web3.eth.Contract(contractABI, contractAddress);
 
         // get the all project ids//
