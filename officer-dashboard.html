@@ -1115,13 +1115,118 @@
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
     <script>
         // Setup Web3 object //
-        var sender = '0x63FA81F8e2d7dABc57897Ed9f4eccC8D45291B16';
+        var sender = '0xc1f12284174Aee9Aed683B2fA197F32D75d4B98c';
         var web3 = new Web3();
         web3.setProvider(new Web3.providers.HttpProvider('http://localhost:7545'));
         web3.eth.defaultAccount = web3.eth.accounts[0];
 
         // Setup Contract's Properties //
         var contractABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_airportName",
+				"type": "string"
+			}
+		],
+		"name": "setAirportName",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_documentAddress",
+				"type": "string"
+			}
+		],
+		"name": "setDocumentAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_projectName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_airportName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_status",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_documentAddress",
+				"type": "string"
+			}
+		],
+		"name": "setProject",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_projectName",
+				"type": "string"
+			}
+		],
+		"name": "setProjectName",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_projectId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_status",
+				"type": "string"
+			}
+		],
+		"name": "setStatus",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
 	{
 		"inputs": [
 			{
@@ -1281,114 +1386,9 @@
 		],
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_projectId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_airportName",
-				"type": "string"
-			}
-		],
-		"name": "setAirportName",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_projectId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_documentAddress",
-				"type": "string"
-			}
-		],
-		"name": "setDocumentAddress",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_projectId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_projectName",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_airportName",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_status",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_documentAddress",
-				"type": "string"
-			}
-		],
-		"name": "setProject",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_projectId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_projectName",
-				"type": "string"
-			}
-		],
-		"name": "setProjectName",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_projectId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_status",
-				"type": "string"
-			}
-		],
-		"name": "setStatus",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	}
 ];
-        var contractAddress = "0x36b7A82def7C7BE0cc838908c47d6dAf64dc4AF3";
+        var contractAddress = "0x6bBA9baB7DA1724995bA3181d9e3e6C487eAfF15";
         var contract = new web3.eth.Contract(contractABI, contractAddress);
 
         // get the all project ids//
